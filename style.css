@@ -1,0 +1,68 @@
+:root {
+	--primary-color: black;
+	--secondary-color: white;
+	--button-color: #ccc;
+	--button-hover-color: #aaa;
+	--button-disabled-color: #eee;
+
+	font-family: sans-serif;
+	text-align: center;
+	line-height: 1.5;
+
+	color: var(--primary-color);
+	background-color: var(--secondary-color);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--primary-color: #eee;
+		--secondary-color: #222;
+		--button-color: #555;
+		--button-hover-color: #444;
+		--button-disabled-color: #333;
+	}
+}
+
+.sr-only {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+h1 {
+	margin: 0;
+	font-size: 2.5rem;
+}
+
+#timer {
+	font-size: 3rem;
+}
+
+.exercises {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+
+button {
+	color: var(--primary-color);
+	background-color: var(--button-color);
+
+	font-size: 1.5rem;
+	width: 12rem;
+	height: 4rem;
+	overflow: hidden;
+	text-wrap: nowrap;
+}
+
+button:not([disabled]):hover {
+	background-color: var(--button-hover-color);
+}
+
+button:disabled {
+	color: var(--button-disabled-color);
+}
