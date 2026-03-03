@@ -4,6 +4,7 @@
 	--button-color: #ccc;
 	--button-hover-color: #aaa;
 	--button-disabled-color: #eee;
+	--logo-color: black;
 
 	font-family: sans-serif;
 	text-align: center;
@@ -20,6 +21,7 @@
 		--button-color: #555;
 		--button-hover-color: #444;
 		--button-disabled-color: #333;
+		--logo-color: white;
 	}
 }
 
@@ -65,4 +67,22 @@ button:not([disabled]):hover {
 
 button:disabled {
 	color: var(--button-disabled-color);
+}
+
+.logos {
+	display: flex;
+	flex-flow: wrap row;
+	flex-direction: row;
+	justify-content: center;
+	gap: 1.5rem;
+
+	margin-top: 50px;
+}
+
+.logo {
+	height: 1.5rem;
+}
+
+.logo * {
+	fill: var(--logo-color);
 }
