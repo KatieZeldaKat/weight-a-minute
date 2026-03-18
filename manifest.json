@@ -1,0 +1,17 @@
+{
+	"name": "Weight a Minute",
+	"description": "Easily track your number of powerlifting sets with a countdown timer between them.",
+	"display": "standalone",
+	"icons": [
+		{
+			"src": "assets/weight-a-minute-512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		},
+		{
+			"src": "assets/weight-a-minute-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		}
+	]
+}
