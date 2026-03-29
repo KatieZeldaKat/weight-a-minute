@@ -20,6 +20,10 @@ buttons.forEach((button) => {
 
 		setTimeout(() => {
 			setButtonsEnabled(true);
+
+			if (Notification.permission === "granted") {
+				new Notification("Rest over, time for the next set!");
+			}
 		}, secondsBetweenSets * 1000);
 	});
 });
