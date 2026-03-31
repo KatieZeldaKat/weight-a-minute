@@ -2,8 +2,21 @@ const secondsBetweenSets = 60;
 
 const timer = document.querySelector("#timer");
 const completedLabels = document.querySelectorAll("span");
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".exercises button");
 
+// Send popup for notifications if the user hasn't made a selection
+if (Notification.permission === "default") {
+	const popup = document.querySelector("#popup");
+	popup.classList = "";
+
+	document.querySelector("#notifications").addEventListener("click", () => {
+		Notification.requestPermission((_) => {
+			popup.classList = "hidden";
+		});
+	});
+}
+
+// Make each button start the timer when pressed
 buttons.forEach((button) => {
 	button.addEventListener("click", () => {
 		const index = button.id.slice(-1);

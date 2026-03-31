@@ -53,12 +53,6 @@ h1 {
 button {
 	color: var(--primary-color);
 	background-color: var(--button-color);
-
-	font-size: 1.5rem;
-	width: 12rem;
-	height: 4rem;
-	overflow: hidden;
-	text-wrap: nowrap;
 }
 
 button:not([disabled]):hover {
@@ -67,6 +61,14 @@ button:not([disabled]):hover {
 
 button:disabled {
 	color: var(--button-disabled-color);
+}
+
+.exercises button {
+	font-size: 1.5rem;
+	width: 12rem;
+	height: 4rem;
+	overflow: hidden;
+	text-wrap: nowrap;
 }
 
 .logos {
@@ -85,4 +87,35 @@ button:disabled {
 
 .logo * {
 	fill: var(--logo-color);
+}
+
+#popup.hidden {
+	display: none;
+}
+
+#popup {
+	background-color: #000000aa;
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+#popup .content {
+	background-color: var(--secondary-color);
+	padding: 3rem 1rem;
+	border-radius: 32px;
+	width: 85vw;
+	opacity: 100%;
+}
+
+#notifications {
+	font-size: 1rem;
+	padding: 1rem;
 }
