@@ -4,6 +4,10 @@ const timer = document.querySelector("#timer");
 const completedLabels = document.querySelectorAll("span");
 const buttons = document.querySelectorAll(".exercises button");
 
+// Register service worker for notifications
+let worker;
+getServiceWorker().then((registration) => (worker = registration));
+
 // Send popup for notifications if the user hasn't made a selection
 if (Notification.permission === "default") {
 	const popup = document.querySelector("#popup");
@@ -34,8 +38,8 @@ buttons.forEach((button) => {
 		setTimeout(() => {
 			setButtonsEnabled(true);
 
-			if (Notification.permission === "granted") {
-				new Notification("Rest over, time for the next set!");
+			if (worker && Notification.permission === "granted") {
+				worker.showNotification("Rest over, time for the next set!");
 			}
 		}, secondsBetweenSets * 1000);
 	});
@@ -50,4 +54,11 @@ function setButtonsEnabled(enabled) {
 function incrementLabel(index) {
 	const count = +completedLabels[index].textContent;
 	completedLabels[index].textContent = count + 1;
+}
+
+async function getServiceWorker() {
+	return (
+		(await navigator.serviceWorker.getRegistration()) ??
+		(await navigator.serviceWorker.register("worker.js"))
+	);
 }
